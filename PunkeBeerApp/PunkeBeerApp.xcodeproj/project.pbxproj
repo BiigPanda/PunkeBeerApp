@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A95E73924D7730E00F33F51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73824D7730E00F33F51 /* AppDelegate.swift */; };
+		9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */; };
+		9A95E73D24D7730E00F33F51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73C24D7730E00F33F51 /* ViewController.swift */; };
+		9A95E74024D7730E00F33F51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E73E24D7730E00F33F51 /* Main.storyboard */; };
+		9A95E74324D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E74124D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld */; };
+		9A95E74524D7731300F33F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E74424D7731300F33F51 /* Assets.xcassets */; };
+		9A95E74824D7731300F33F51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E74624D7731300F33F51 /* LaunchScreen.storyboard */; };
+		9A95E75324D7731300F33F51 /* PunkeBeerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E75224D7731300F33F51 /* PunkeBeerAppTests.swift */; };
+		9A95E75E24D7731300F33F51 /* PunkeBeerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E75D24D7731300F33F51 /* PunkeBeerAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A95E74F24D7731300F33F51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A95E72D24D7730E00F33F51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A95E73424D7730E00F33F51;
+			remoteInfo = PunkeBeerApp;
+		};
+		9A95E75A24D7731300F33F51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A95E72D24D7730E00F33F51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A95E73424D7730E00F33F51;
+			remoteInfo = PunkeBeerApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9A95E73524D7730E00F33F51 /* PunkeBeerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PunkeBeerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A95E73824D7730E00F33F51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9A95E73C24D7730E00F33F51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9A95E73F24D7730E00F33F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A95E74224D7730E00F33F51 /* PunkeBeerApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PunkeBeerApp.xcdatamodel; sourceTree = "<group>"; };
+		9A95E74424D7731300F33F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A95E74724D7731300F33F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A95E74924D7731300F33F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A95E74E24D7731300F33F51 /* PunkeBeerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PunkeBeerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A95E75224D7731300F33F51 /* PunkeBeerAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunkeBeerAppTests.swift; sourceTree = "<group>"; };
+		9A95E75424D7731300F33F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A95E75924D7731300F33F51 /* PunkeBeerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PunkeBeerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A95E75D24D7731300F33F51 /* PunkeBeerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunkeBeerAppUITests.swift; sourceTree = "<group>"; };
+		9A95E75F24D7731300F33F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A95E73224D7730E00F33F51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A95E74B24D7731300F33F51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A95E75624D7731300F33F51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A95E72C24D7730E00F33F51 = {
+			isa = PBXGroup;
+			children = (
+				9A95E73724D7730E00F33F51 /* PunkeBeerApp */,
+				9A95E75124D7731300F33F51 /* PunkeBeerAppTests */,
+				9A95E75C24D7731300F33F51 /* PunkeBeerAppUITests */,
+				9A95E73624D7730E00F33F51 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A95E73624D7730E00F33F51 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E73524D7730E00F33F51 /* PunkeBeerApp.app */,
+				9A95E74E24D7731300F33F51 /* PunkeBeerAppTests.xctest */,
+				9A95E75924D7731300F33F51 /* PunkeBeerAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A95E73724D7730E00F33F51 /* PunkeBeerApp */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E73824D7730E00F33F51 /* AppDelegate.swift */,
+				9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */,
+				9A95E73C24D7730E00F33F51 /* ViewController.swift */,
+				9A95E73E24D7730E00F33F51 /* Main.storyboard */,
+				9A95E74424D7731300F33F51 /* Assets.xcassets */,
+				9A95E74624D7731300F33F51 /* LaunchScreen.storyboard */,
+				9A95E74924D7731300F33F51 /* Info.plist */,
+				9A95E74124D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld */,
+			);
+			path = PunkeBeerApp;
+			sourceTree = "<group>";
+		};
+		9A95E75124D7731300F33F51 /* PunkeBeerAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E75224D7731300F33F51 /* PunkeBeerAppTests.swift */,
+				9A95E75424D7731300F33F51 /* Info.plist */,
+			);
+			path = PunkeBeerAppTests;
+			sourceTree = "<group>";
+		};
+		9A95E75C24D7731300F33F51 /* PunkeBeerAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E75D24D7731300F33F51 /* PunkeBeerAppUITests.swift */,
+				9A95E75F24D7731300F33F51 /* Info.plist */,
+			);
+			path = PunkeBeerAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A95E73424D7730E00F33F51 /* PunkeBeerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A95E76224D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerApp" */;
+			buildPhases = (
+				9A95E73124D7730E00F33F51 /* Sources */,
+				9A95E73224D7730E00F33F51 /* Frameworks */,
+				9A95E73324D7730E00F33F51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PunkeBeerApp;
+			productName = PunkeBeerApp;
+			productReference = 9A95E73524D7730E00F33F51 /* PunkeBeerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9A95E74D24D7731300F33F51 /* PunkeBeerAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A95E76524D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerAppTests" */;
+			buildPhases = (
+				9A95E74A24D7731300F33F51 /* Sources */,
+				9A95E74B24D7731300F33F51 /* Frameworks */,
+				9A95E74C24D7731300F33F51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A95E75024D7731300F33F51 /* PBXTargetDependency */,
+			);
+			name = PunkeBeerAppTests;
+			productName = PunkeBeerAppTests;
+			productReference = 9A95E74E24D7731300F33F51 /* PunkeBeerAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9A95E75824D7731300F33F51 /* PunkeBeerAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A95E76824D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerAppUITests" */;
+			buildPhases = (
+				9A95E75524D7731300F33F51 /* Sources */,
+				9A95E75624D7731300F33F51 /* Frameworks */,
+				9A95E75724D7731300F33F51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A95E75B24D7731300F33F51 /* PBXTargetDependency */,
+			);
+			name = PunkeBeerAppUITests;
+			productName = PunkeBeerAppUITests;
+			productReference = 9A95E75924D7731300F33F51 /* PunkeBeerAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A95E72D24D7730E00F33F51 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "Marc Gallardo";
+				TargetAttributes = {
+					9A95E73424D7730E00F33F51 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					9A95E74D24D7731300F33F51 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 9A95E73424D7730E00F33F51;
+					};
+					9A95E75824D7731300F33F51 = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = 9A95E73424D7730E00F33F51;
+					};
+				};
+			};
+			buildConfigurationList = 9A95E73024D7730E00F33F51 /* Build configuration list for PBXProject "PunkeBeerApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A95E72C24D7730E00F33F51;
+			productRefGroup = 9A95E73624D7730E00F33F51 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9A95E73424D7730E00F33F51 /* PunkeBeerApp */,
+				9A95E74D24D7731300F33F51 /* PunkeBeerAppTests */,
+				9A95E75824D7731300F33F51 /* PunkeBeerAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A95E73324D7730E00F33F51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A95E74824D7731300F33F51 /* LaunchScreen.storyboard in Resources */,
+				9A95E74524D7731300F33F51 /* Assets.xcassets in Resources */,
+				9A95E74024D7730E00F33F51 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A95E74C24D7731300F33F51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A95E75724D7731300F33F51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A95E73124D7730E00F33F51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A95E73D24D7730E00F33F51 /* ViewController.swift in Sources */,
+				9A95E73924D7730E00F33F51 /* AppDelegate.swift in Sources */,
+				9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */,
+				9A95E74324D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A95E74A24D7731300F33F51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A95E75324D7731300F33F51 /* PunkeBeerAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A95E75524D7731300F33F51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A95E75E24D7731300F33F51 /* PunkeBeerAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A95E75024D7731300F33F51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A95E73424D7730E00F33F51 /* PunkeBeerApp */;
+			targetProxy = 9A95E74F24D7731300F33F51 /* PBXContainerItemProxy */;
+		};
+		9A95E75B24D7731300F33F51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A95E73424D7730E00F33F51 /* PunkeBeerApp */;
+			targetProxy = 9A95E75A24D7731300F33F51 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A95E73E24D7730E00F33F51 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A95E73F24D7730E00F33F51 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9A95E74624D7731300F33F51 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A95E74724D7731300F33F51 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9A95E76024D7731300F33F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9A95E76124D7731300F33F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A95E76324D7731300F33F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4VJ9THEFP;
+				INFOPLIST_FILE = PunkeBeerApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gallardos-SA.PunkeBeerApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9A95E76424D7731300F33F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4VJ9THEFP;
+				INFOPLIST_FILE = PunkeBeerApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gallardos-SA.PunkeBeerApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9A95E76624D7731300F33F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4VJ9THEFP;
+				INFOPLIST_FILE = PunkeBeerAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gallardos-SA.PunkeBeerAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PunkeBeerApp.app/PunkeBeerApp";
+			};
+			name = Debug;
+		};
+		9A95E76724D7731300F33F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4VJ9THEFP;
+				INFOPLIST_FILE = PunkeBeerAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gallardos-SA.PunkeBeerAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PunkeBeerApp.app/PunkeBeerApp";
+			};
+			name = Release;
+		};
+		9A95E76924D7731300F33F51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4VJ9THEFP;
+				INFOPLIST_FILE = PunkeBeerAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gallardos-SA.PunkeBeerAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PunkeBeerApp;
+			};
+			name = Debug;
+		};
+		9A95E76A24D7731300F33F51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4VJ9THEFP;
+				INFOPLIST_FILE = PunkeBeerAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Gallardos-SA.PunkeBeerAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PunkeBeerApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A95E73024D7730E00F33F51 /* Build configuration list for PBXProject "PunkeBeerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A95E76024D7731300F33F51 /* Debug */,
+				9A95E76124D7731300F33F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A95E76224D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A95E76324D7731300F33F51 /* Debug */,
+				9A95E76424D7731300F33F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A95E76524D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A95E76624D7731300F33F51 /* Debug */,
+				9A95E76724D7731300F33F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A95E76824D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A95E76924D7731300F33F51 /* Debug */,
+				9A95E76A24D7731300F33F51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9A95E74124D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9A95E74224D7730E00F33F51 /* PunkeBeerApp.xcdatamodel */,
+			);
+			currentVersion = 9A95E74224D7730E00F33F51 /* PunkeBeerApp.xcdatamodel */;
+			path = PunkeBeerApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9A95E72D24D7730E00F33F51 /* Project object */;
+}
