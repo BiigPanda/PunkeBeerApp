@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25440F17F92BF37EB9C26742 /* Pods_PunkeBeerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0B89747A1BFA4FFE610F23 /* Pods_PunkeBeerAppTests.framework */; };
 		9A95E73924D7730E00F33F51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73824D7730E00F33F51 /* AppDelegate.swift */; };
 		9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */; };
 		9A95E73D24D7730E00F33F51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73C24D7730E00F33F51 /* ViewController.swift */; };
@@ -16,6 +17,10 @@
 		9A95E74824D7731300F33F51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E74624D7731300F33F51 /* LaunchScreen.storyboard */; };
 		9A95E75324D7731300F33F51 /* PunkeBeerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E75224D7731300F33F51 /* PunkeBeerAppTests.swift */; };
 		9A95E75E24D7731300F33F51 /* PunkeBeerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E75D24D7731300F33F51 /* PunkeBeerAppUITests.swift */; };
+		9A95E77024D7784400F33F51 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E76F24D7784400F33F51 /* MainViewController.swift */; };
+		9A95E77224D778F400F33F51 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E77124D778F400F33F51 /* Beer.swift */; };
+		C2EE67DB7C28069E45EF1004 /* Pods_PunkeBeerApp_PunkeBeerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A7F700AFDB4F2F53175560 /* Pods_PunkeBeerApp_PunkeBeerAppUITests.framework */; };
+		DB939DBAC5EC3DAD787874C0 /* Pods_PunkeBeerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880AAA0774A3E4E16B796F07 /* Pods_PunkeBeerApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20A7F700AFDB4F2F53175560 /* Pods_PunkeBeerApp_PunkeBeerAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PunkeBeerApp_PunkeBeerAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D20B78156B9B47C2ECB362 /* Pods-PunkeBeerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerApp.release.xcconfig"; path = "Target Support Files/Pods-PunkeBeerApp/Pods-PunkeBeerApp.release.xcconfig"; sourceTree = "<group>"; };
+		363B85A42DB84E87A9422CAD /* Pods-PunkeBeerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-PunkeBeerAppTests/Pods-PunkeBeerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		47BA9A47A0A7506770155A71 /* Pods-PunkeBeerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerApp.debug.xcconfig"; path = "Target Support Files/Pods-PunkeBeerApp/Pods-PunkeBeerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4FC11E352F7E7E4876A05E73 /* Pods-PunkeBeerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerAppTests.release.xcconfig"; path = "Target Support Files/Pods-PunkeBeerAppTests/Pods-PunkeBeerAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		880AAA0774A3E4E16B796F07 /* Pods_PunkeBeerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PunkeBeerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95E73524D7730E00F33F51 /* PunkeBeerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PunkeBeerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95E73824D7730E00F33F51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +62,11 @@
 		9A95E75924D7731300F33F51 /* PunkeBeerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PunkeBeerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95E75D24D7731300F33F51 /* PunkeBeerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunkeBeerAppUITests.swift; sourceTree = "<group>"; };
 		9A95E75F24D7731300F33F51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A95E76F24D7784400F33F51 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9A95E77124D778F400F33F51 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		9B59A6A951958C4200C05F1F /* Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PunkeBeerApp-PunkeBeerAppUITests/Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AD0B89747A1BFA4FFE610F23 /* Pods_PunkeBeerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PunkeBeerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC2F8350CA068CC481837644 /* Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-PunkeBeerApp-PunkeBeerAppUITests/Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB939DBAC5EC3DAD787874C0 /* Pods_PunkeBeerApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25440F17F92BF37EB9C26742 /* Pods_PunkeBeerAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +90,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2EE67DB7C28069E45EF1004 /* Pods_PunkeBeerApp_PunkeBeerAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AB7D01A5197880266A609FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				47BA9A47A0A7506770155A71 /* Pods-PunkeBeerApp.debug.xcconfig */,
+				32D20B78156B9B47C2ECB362 /* Pods-PunkeBeerApp.release.xcconfig */,
+				CC2F8350CA068CC481837644 /* Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig */,
+				9B59A6A951958C4200C05F1F /* Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig */,
+				363B85A42DB84E87A9422CAD /* Pods-PunkeBeerAppTests.debug.xcconfig */,
+				4FC11E352F7E7E4876A05E73 /* Pods-PunkeBeerAppTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9A95E72C24D7730E00F33F51 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +117,8 @@
 				9A95E75124D7731300F33F51 /* PunkeBeerAppTests */,
 				9A95E75C24D7731300F33F51 /* PunkeBeerAppUITests */,
 				9A95E73624D7730E00F33F51 /* Products */,
+				2AB7D01A5197880266A609FF /* Pods */,
+				CCE1BD39E31A5E3142C3C9F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +135,7 @@
 		9A95E73724D7730E00F33F51 /* PunkeBeerApp */ = {
 			isa = PBXGroup;
 			children = (
+				9A95E76B24D7774F00F33F51 /* Main */,
 				9A95E73824D7730E00F33F51 /* AppDelegate.swift */,
 				9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */,
 				9A95E73C24D7730E00F33F51 /* ViewController.swift */,
@@ -131,6 +166,49 @@
 			path = PunkeBeerAppUITests;
 			sourceTree = "<group>";
 		};
+		9A95E76B24D7774F00F33F51 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E76C24D7777800F33F51 /* Model */,
+				9A95E76D24D7778100F33F51 /* View */,
+				9A95E76E24D777E500F33F51 /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9A95E76C24D7777800F33F51 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E77124D778F400F33F51 /* Beer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9A95E76D24D7778100F33F51 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E76F24D7784400F33F51 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A95E76E24D777E500F33F51 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CCE1BD39E31A5E3142C3C9F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				880AAA0774A3E4E16B796F07 /* Pods_PunkeBeerApp.framework */,
+				20A7F700AFDB4F2F53175560 /* Pods_PunkeBeerApp_PunkeBeerAppUITests.framework */,
+				AD0B89747A1BFA4FFE610F23 /* Pods_PunkeBeerAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +216,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A95E76224D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerApp" */;
 			buildPhases = (
+				3585CEDF43F75D60D185B965 /* [CP] Check Pods Manifest.lock */,
 				9A95E73124D7730E00F33F51 /* Sources */,
 				9A95E73224D7730E00F33F51 /* Frameworks */,
 				9A95E73324D7730E00F33F51 /* Resources */,
+				7BDF27B1B7F3926877D468C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A95E76524D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerAppTests" */;
 			buildPhases = (
+				F2F45CB8AD339CEC1258C903 /* [CP] Check Pods Manifest.lock */,
 				9A95E74A24D7731300F33F51 /* Sources */,
 				9A95E74B24D7731300F33F51 /* Frameworks */,
 				9A95E74C24D7731300F33F51 /* Resources */,
@@ -173,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A95E76824D7731300F33F51 /* Build configuration list for PBXNativeTarget "PunkeBeerAppUITests" */;
 			buildPhases = (
+				047A43FC439AE2AC1AFB957D /* [CP] Check Pods Manifest.lock */,
 				9A95E75524D7731300F33F51 /* Sources */,
 				9A95E75624D7731300F33F51 /* Frameworks */,
 				9A95E75724D7731300F33F51 /* Resources */,
+				5292B9CC3979A43F7661BB3B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,15 +340,120 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		047A43FC439AE2AC1AFB957D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PunkeBeerApp-PunkeBeerAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3585CEDF43F75D60D185B965 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PunkeBeerApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5292B9CC3979A43F7661BB3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PunkeBeerApp-PunkeBeerAppUITests/Pods-PunkeBeerApp-PunkeBeerAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PunkeBeerApp-PunkeBeerAppUITests/Pods-PunkeBeerApp-PunkeBeerAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PunkeBeerApp-PunkeBeerAppUITests/Pods-PunkeBeerApp-PunkeBeerAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BDF27B1B7F3926877D468C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PunkeBeerApp/Pods-PunkeBeerApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PunkeBeerApp/Pods-PunkeBeerApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PunkeBeerApp/Pods-PunkeBeerApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2F45CB8AD339CEC1258C903 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PunkeBeerAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A95E73124D7730E00F33F51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9A95E73D24D7730E00F33F51 /* ViewController.swift in Sources */,
+				9A95E77224D778F400F33F51 /* Beer.swift in Sources */,
 				9A95E73924D7730E00F33F51 /* AppDelegate.swift in Sources */,
 				9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */,
 				9A95E74324D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld in Sources */,
+				9A95E77024D7784400F33F51 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +624,7 @@
 		};
 		9A95E76324D7731300F33F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47BA9A47A0A7506770155A71 /* Pods-PunkeBeerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +643,7 @@
 		};
 		9A95E76424D7731300F33F51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32D20B78156B9B47C2ECB362 /* Pods-PunkeBeerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -472,6 +662,7 @@
 		};
 		9A95E76624D7731300F33F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 363B85A42DB84E87A9422CAD /* Pods-PunkeBeerAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +685,7 @@
 		};
 		9A95E76724D7731300F33F51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FC11E352F7E7E4876A05E73 /* Pods-PunkeBeerAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +708,7 @@
 		};
 		9A95E76924D7731300F33F51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2F8350CA068CC481837644 /* Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -536,6 +729,7 @@
 		};
 		9A95E76A24D7731300F33F51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B59A6A951958C4200C05F1F /* Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
