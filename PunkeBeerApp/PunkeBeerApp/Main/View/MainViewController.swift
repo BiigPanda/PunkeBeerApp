@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MainViewController: UIViewController {
     
@@ -16,7 +17,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableViewMain.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "maintableviewcell")
         configureView()
+        bind()
     }
     
     private func configureView() {
@@ -40,6 +43,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewMain.dequeueReusableCell(withIdentifier: "maintableviewcell") as! MainTableViewCell
+        
+        let object = viewModel.dataArray[indexPath.row]
+        
+        cell.lblNameBeer.text = object.name
+        cell.lblTagLine.text = object.tagline
+        cell.lblDescription.text = object.description
+        cell.lblAbv.text = String(object.abv)
+        cell.imgBeer.sd_setImage(with: URL(string: object.image_url), placeholderImage: nil)
+        
         return cell
     }
     

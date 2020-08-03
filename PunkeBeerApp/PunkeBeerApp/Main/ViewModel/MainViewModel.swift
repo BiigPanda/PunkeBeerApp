@@ -19,7 +19,7 @@ class MainViewModel {
     }
     
     func retriveDataList() {
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers/random") else { return }
+        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
