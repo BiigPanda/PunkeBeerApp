@@ -13,7 +13,9 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tableViewMain: UITableView!
     
+    
     var viewModel = MainViewModel()
+    var countPage = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.imgBeer.sd_setImage(with: URL(string: object.image_url), placeholderImage: nil)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.dataArray.count - 1 {
+            viewModel.retriveNextDataList(pageIndex: String(countPage))
+            countPage += 1
+            bind()
+            print("Cargando...")
+        }
     }
     
     

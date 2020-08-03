@@ -34,5 +34,21 @@ class MainViewModel {
         }.resume()
     }
     
+    func retriveNextDataList(pageIndex: String) {
+        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(pageIndex)") else { return }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            guard let json = data else { return }
+            
+            do {
+                let decorder = JSONDecoder()
+                self.dataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
+            } catch let error {
+                print("Ha ocurrido un error : \(error.localizedDescription)")
+            }
+        }.resume()
+    }
+    
     
 }
