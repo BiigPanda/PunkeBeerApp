@@ -23,4 +23,6 @@ struct Beer: Codable {
     let srm: Double
     let ph: Double
     let attenuation_level: Double
+    let volume: [String: String]
+    let boil_volume : [String: String]
 }
