@@ -10,7 +10,6 @@
 		25440F17F92BF37EB9C26742 /* Pods_PunkeBeerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0B89747A1BFA4FFE610F23 /* Pods_PunkeBeerAppTests.framework */; };
 		9A95E73924D7730E00F33F51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73824D7730E00F33F51 /* AppDelegate.swift */; };
 		9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */; };
-		9A95E73D24D7730E00F33F51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73C24D7730E00F33F51 /* ViewController.swift */; };
 		9A95E74024D7730E00F33F51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E73E24D7730E00F33F51 /* Main.storyboard */; };
 		9A95E74324D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E74124D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld */; };
 		9A95E74524D7731300F33F51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E74424D7731300F33F51 /* Assets.xcassets */; };
@@ -20,6 +19,8 @@
 		9A95E77024D7784400F33F51 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E76F24D7784400F33F51 /* MainViewController.swift */; };
 		9A95E77224D778F400F33F51 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E77124D778F400F33F51 /* Beer.swift */; };
 		9A95E77424D822F300F33F51 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E77324D822F300F33F51 /* MainViewModel.swift */; };
+		9A95E77824D8302C00F33F51 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E77624D8302C00F33F51 /* MainTableViewCell.swift */; };
+		9A95E77924D8302C00F33F51 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E77724D8302C00F33F51 /* MainTableViewCell.xib */; };
 		C2EE67DB7C28069E45EF1004 /* Pods_PunkeBeerApp_PunkeBeerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20A7F700AFDB4F2F53175560 /* Pods_PunkeBeerApp_PunkeBeerAppUITests.framework */; };
 		DB939DBAC5EC3DAD787874C0 /* Pods_PunkeBeerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 880AAA0774A3E4E16B796F07 /* Pods_PunkeBeerApp.framework */; };
 /* End PBXBuildFile section */
@@ -51,7 +52,6 @@
 		9A95E73524D7730E00F33F51 /* PunkeBeerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PunkeBeerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95E73824D7730E00F33F51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9A95E73C24D7730E00F33F51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A95E73F24D7730E00F33F51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9A95E74224D7730E00F33F51 /* PunkeBeerApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PunkeBeerApp.xcdatamodel; sourceTree = "<group>"; };
 		9A95E74424D7731300F33F51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +66,8 @@
 		9A95E76F24D7784400F33F51 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9A95E77124D778F400F33F51 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		9A95E77324D822F300F33F51 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		9A95E77624D8302C00F33F51 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		9A95E77724D8302C00F33F51 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		9B59A6A951958C4200C05F1F /* Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-PunkeBeerApp-PunkeBeerAppUITests/Pods-PunkeBeerApp-PunkeBeerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AD0B89747A1BFA4FFE610F23 /* Pods_PunkeBeerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PunkeBeerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2F8350CA068CC481837644 /* Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-PunkeBeerApp-PunkeBeerAppUITests/Pods-PunkeBeerApp-PunkeBeerAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +142,6 @@
 				9A95E76B24D7774F00F33F51 /* Main */,
 				9A95E73824D7730E00F33F51 /* AppDelegate.swift */,
 				9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */,
-				9A95E73C24D7730E00F33F51 /* ViewController.swift */,
 				9A95E73E24D7730E00F33F51 /* Main.storyboard */,
 				9A95E74424D7731300F33F51 /* Assets.xcassets */,
 				9A95E74624D7731300F33F51 /* LaunchScreen.storyboard */,
@@ -171,6 +172,7 @@
 		9A95E76B24D7774F00F33F51 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9A95E77524D8300300F33F51 /* Cells */,
 				9A95E76C24D7777800F33F51 /* Model */,
 				9A95E76D24D7778100F33F51 /* View */,
 				9A95E76E24D777E500F33F51 /* ViewModel */,
@@ -200,6 +202,15 @@
 				9A95E77324D822F300F33F51 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9A95E77524D8300300F33F51 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9A95E77624D8302C00F33F51 /* MainTableViewCell.swift */,
+				9A95E77724D8302C00F33F51 /* MainTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CCE1BD39E31A5E3142C3C9F7 /* Frameworks */ = {
@@ -323,6 +334,7 @@
 			files = (
 				9A95E74824D7731300F33F51 /* LaunchScreen.storyboard in Resources */,
 				9A95E74524D7731300F33F51 /* Assets.xcassets in Resources */,
+				9A95E77924D8302C00F33F51 /* MainTableViewCell.xib in Resources */,
 				9A95E74024D7730E00F33F51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,9 +464,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A95E77424D822F300F33F51 /* MainViewModel.swift in Sources */,
-				9A95E73D24D7730E00F33F51 /* ViewController.swift in Sources */,
 				9A95E77224D778F400F33F51 /* Beer.swift in Sources */,
 				9A95E73924D7730E00F33F51 /* AppDelegate.swift in Sources */,
+				9A95E77824D8302C00F33F51 /* MainTableViewCell.swift in Sources */,
 				9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */,
 				9A95E74324D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld in Sources */,
 				9A95E77024D7784400F33F51 /* MainViewController.swift in Sources */,
