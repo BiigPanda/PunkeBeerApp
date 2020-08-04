@@ -12,6 +12,7 @@ import SDWebImage
 class MainViewController: UIViewController {
     
     @IBOutlet weak var tableViewMain: UITableView!
+    @IBOutlet weak var btn_Filter: UIButton!
     
     
     var viewModel = MainViewModel()
@@ -36,18 +37,51 @@ class MainViewController: UIViewController {
         }
         
     }
+    
+    
+    @IBAction func sortBeers(_ sender: Any) {
+        let optionMenu = UIAlertController(title: nil, message: "Choose option for sort Beers", preferredStyle: .actionSheet)
+    
+        let deleteAction = UIAlertAction(title: "Sort Increase ABV", style: .default) { action -> Void in
+            self.viewModel.sortedElements(option: 1)
+            self.btn_Filter.setImage(UIImage(named: "img_filter_enabled"), for: .normal)
+            self.bind()
+        }
+        let saveAction = UIAlertAction(title: "Sort Decrease ABV", style: .default) { action -> Void in
+            self.viewModel.sortedElements(option: 2)
+            self.btn_Filter.setImage(UIImage(named: "img_filter_enabled"), for: .normal)
+            self.bind()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            self.viewModel.sortedElements(option: 3)
+            self.btn_Filter.setImage(UIImage(named: "img_filter_disabled"), for: .normal)
+            self.bind()
+        }
+              
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(saveAction)
+        optionMenu.addAction(cancelAction)
+              
+        self.present(optionMenu, animated: true, completion: nil)
+    }
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.dataArray.count
+        if viewModel.sortDataArray.count == 0 {
+            return viewModel.dataArray.count
+        } else {
+            return viewModel.sortDataArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewMain.dequeueReusableCell(withIdentifier: "maintableviewcell") as! MainTableViewCell
+        var object = viewModel.dataArray[indexPath.row]
         
-        let object = viewModel.dataArray[indexPath.row]
-        
+        if viewModel.sortDataArray.count != 0 {
+                   object = viewModel.sortDataArray[indexPath.row]
+        }
         cell.lblNameBeer.text = object.name
         cell.lblTagLine.text = object.tagline
         cell.lblDescription.text = object.description
@@ -62,10 +96,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             viewModel.retriveNextDataList(pageIndex: String(countPage))
             countPage += 1
             bind()
-            print("Cargando...")
         }
     }
-    
-    
-    
 }

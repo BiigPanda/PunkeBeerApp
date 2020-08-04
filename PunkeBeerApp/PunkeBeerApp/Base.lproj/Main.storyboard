@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Wp-kv-mFU">
-                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <rect key="frame" x="20" y="108" width="374" height="754"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="maintableviewcell" id="z1r-nW-aQU" customClass="MainTableViewCell" customModule="PunkeBeerApp" customModuleProvider="target">
@@ -33,17 +33,41 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="z6s-VZ-6vN"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Mf7-75-jSl">
+                                <rect key="frame" x="20" y="44" width="312" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="312" id="P4W-d1-ttx"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXZ-pC-7QI">
+                                <rect key="frame" x="354" y="53" width="40" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="HRx-WF-wPY"/>
+                                </constraints>
+                                <state key="normal" image="img_filter_disabled"/>
+                                <connections>
+                                    <action selector="sortBeers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uMU-bd-psz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4gT-mq-G4L"/>
-                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="F24-c9-zVQ"/>
-                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FIf-Fp-9RF"/>
-                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="V1e-qg-r6i"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Wp-kv-mFU" secondAttribute="trailing" constant="20" id="21u-E3-Uq6"/>
+                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="86N-lR-nkt"/>
+                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="top" secondItem="Mf7-75-jSl" secondAttribute="bottom" constant="8" id="MeU-fg-QoP"/>
+                            <constraint firstItem="CXZ-pC-7QI" firstAttribute="leading" secondItem="Mf7-75-jSl" secondAttribute="trailing" constant="22" id="Ots-pA-fIR"/>
+                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="top" secondItem="CXZ-pC-7QI" secondAttribute="bottom" constant="16" id="Wem-ev-0zr"/>
+                            <constraint firstItem="Mf7-75-jSl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YuS-J6-9nO"/>
+                            <constraint firstItem="CXZ-pC-7QI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="9" id="boe-Uv-KUc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CXZ-pC-7QI" secondAttribute="trailing" constant="20" id="klY-so-dCE"/>
+                            <constraint firstItem="Mf7-75-jSl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qAq-02-Q7a"/>
+                            <constraint firstItem="5Wp-kv-mFU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wtT-tQ-oGz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btn_Filter" destination="CXZ-pC-7QI" id="x3n-VH-neT"/>
                         <outlet property="tableViewMain" destination="5Wp-kv-mFU" id="qZO-Yp-Sse"/>
                     </connections>
                 </viewController>
@@ -52,4 +76,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_filter_disabled" width="256" height="256"/>
+    </resources>
 </document>

@@ -18,6 +18,12 @@ class MainViewModel {
         }
     }
     
+    var sortDataArray: [Beer] = [] {
+           didSet{
+               refreshData()
+           }
+       }
+    
     func retriveDataList() {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
         
@@ -48,6 +54,23 @@ class MainViewModel {
                 print("Ha ocurrido un error : \(error.localizedDescription)")
             }
         }.resume()
+    }
+    
+    func sortedElements (option: Int) {
+        switch option {
+            case 1:
+                self.sortDataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
+                    return BeerA.abv > BeerB.abv
+            }
+            case 2:
+                self.sortDataArray = self.dataArray.sorted { (BeerA, BeerB) -> Bool in
+                        return BeerA.abv < BeerB.abv
+            }
+            case 3:
+                self.sortDataArray.removeAll()
+            default:
+                break
+        }
     }
     
     
