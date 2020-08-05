@@ -79,9 +79,39 @@ class MainViewModel {
             restartSearch()
             return
         }
+        //Caramel toffee cake
+        
+        let strings = ["Caramel toffee cake", "PEPE"]
+        strings.filter { (string) -> Bool in
+            return strings.contains(string)
+        }
+        
+        if strings.contains(where: { $0 == "Caramel" }){
+            print("yessssss")
+        }else {
+            print("nooooooooo")
+        }
+        
+        
+        let filteredStrings = strings.filter({(item: String) -> Bool in
+
+            let stringMatch = item.lowercased().range(of: searchTextFood.lowercased())
+           // print(stringMatch != nil ? true : false)
+             return stringMatch != nil ? true : false
+        })
+        
+        print(filteredStrings)
+        
         
         sortDataArray = dataArray.filter({ (Beer) -> Bool in
-            return Beer.food_pairing.contains(searchTextFood)
+            var check: Bool = false
+            for beerfood in Beer.food_pairing {
+                // string match fuera para hacer un return
+                let stringMatch = beerfood.lowercased().range(of: searchTextFood.lowercased())
+                check = stringMatch != nil ? true : false
+            }
+            // si el check es falso hacer la petición url con el hud incorporado
+            return check
         })
     }
     
