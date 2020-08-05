@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var tableViewMain: UITableView!
     @IBOutlet weak var btn_Filter: UIButton!
+    @IBOutlet weak var srchBar_Food: UISearchBar!
     
     
     var viewModel = MainViewModel()
@@ -27,6 +28,8 @@ class MainViewController: UIViewController {
     
     private func configureView() {
         viewModel.retriveDataList()
+        tableViewMain.keyboardDismissMode = .onDrag
+        srchBar_Food.searchTextField.clearButtonMode = .never
     }
     
     private func bind() {
@@ -64,9 +67,11 @@ class MainViewController: UIViewController {
               
         self.present(optionMenu, animated: true, completion: nil)
     }
+    
+    
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel.sortDataArray.count == 0 {
             return viewModel.dataArray.count
@@ -97,5 +102,28 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             countPage += 1
             bind()
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            viewModel.restartSearch()
+            return
+        }
+        viewModel.searchByFood(searchTextFood: searchText)
+        bind()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.restartSearch()
+        srchBar_Food.searchTextField.text = ""
+        srchBar_Food.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else {
+            return
+        }
+        viewModel.searchByFood(searchTextFood: text)
+        bind()
     }
 }

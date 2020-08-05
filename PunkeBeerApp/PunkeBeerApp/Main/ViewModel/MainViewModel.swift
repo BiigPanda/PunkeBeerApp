@@ -73,5 +73,23 @@ class MainViewModel {
         }
     }
     
+    func searchByFood(searchTextFood: String) {
+        
+        guard !searchTextFood.isEmpty else {
+            restartSearch()
+            return
+        }
+        
+        sortDataArray = dataArray.filter({ (Beer) -> Bool in
+            return Beer.food_pairing.contains(searchTextFood)
+        })
+    }
+    
+    func restartSearch() {
+        self.sortDataArray.removeAll()
+    }
+    
+    
+    
     
 }

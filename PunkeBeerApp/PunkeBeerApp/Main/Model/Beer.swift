@@ -15,4 +15,5 @@ struct Beer: Codable {
     let description: String
     let image_url: String
     let abv: Double
+    let food_pairing: [String]
 }
