@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import CoreData
 
 class MainViewController: UIViewController {
     
@@ -22,6 +23,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewMain.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "maintableviewcell")
+        connection()
         configureView()
         bind()
     }
@@ -138,4 +140,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
         bind()
         srchBar_Food.resignFirstResponder()
     }
+
+    func connection() {
+          let delegate = UIApplication.shared.delegate as! AppDelegate
+          viewModel.context = delegate.persistentContainer.viewContext
+      }
 }

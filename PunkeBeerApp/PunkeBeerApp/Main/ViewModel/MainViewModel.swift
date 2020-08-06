@@ -27,11 +27,8 @@ class MainViewModel {
         }
     }
     
-     func connection() -> NSManagedObjectContext {
-         let delegate = UIApplication.shared.delegate as! AppDelegate
-         return delegate.persistentContainer.viewContext
-     }
-    
+    var context: NSManagedObjectContext?
+
     func retriveDataList() {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
         
@@ -61,6 +58,10 @@ class MainViewModel {
             do {
                 let decorder = JSONDecoder()
                 self.dataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
+                for beer in self.dataArray {
+                    self.saveCoreData(objectBeer: beer)
+                }
+                self.saveCountpage(countpage: Int16(pageIndex)!)
             } catch let error {
                 print("Ha ocurrido un error : \(error.localizedDescription)")
             }
@@ -134,14 +135,14 @@ class MainViewModel {
     func restartSearch() {
         self.sortDataArray.removeAll()
     }
- 
+    
     
     func saveCoreData(objectBeer: Beer) {
-        let context = connection()
-        guard let beerEntity = NSEntityDescription.entity(forEntityName: "BeerCoreData", in: context) else {
+       
+        guard let beerEntity = NSEntityDescription.entity(forEntityName: "BeerCoreData", in: self.context!) else {
             return
         }
-        let beerTask = NSManagedObject(entity: beerEntity, insertInto: context)
+        let beerTask = NSManagedObject(entity: beerEntity, insertInto: self.context!)
         beerTask.setValue(objectBeer.id, forKey: "id")
         beerTask.setValue(objectBeer.name, forKey: "name")
         beerTask.setValue(objectBeer.tagline, forKey: "tagline")
@@ -151,37 +152,52 @@ class MainViewModel {
         beerTask.setValue(objectBeer.food_pairing, forKey: "food_pairing")
         
         do {
-            try context.save()
+            try self.context!.save()
         } catch let error as NSError {
             print("Error al guardar", error.localizedDescription)
         }
     }
     
+    func  saveCountpage(countpage: Int16)  {
+        guard let utilsEntity = NSEntityDescription.entity(forEntityName: "Utils", in: self.context!) else {
+            return
+        }
+        let utilsTask = NSManagedObject(entity: utilsEntity, insertInto: self.context!)
+        utilsTask.setValue(countpage, forKey: "countPage")
+        
+        do {
+            try self.context!.save()
+        } catch let error as NSError {
+            print("Error al guardar", error.localizedDescription)
+        }
+        
+    }
+    
     func loadBeers() -> [Beer] {
-          let appDelegate = UIApplication.shared.delegate as! AppDelegate
-          let managedContext = appDelegate.persistentContainer.viewContext
-          var arrayBeerC : [BeerFromCoredata] = []
-          var emptyBeerC: BeerFromCoredata = BeerFromCoredata()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var arrayBeerC : [BeerFromCoredata] = []
+        var emptyBeerC: BeerFromCoredata = BeerFromCoredata()
         
         var beer: Beer = Beer()
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BeerCoreData")
-
-          do {
+        
+        do {
             let records = try managedContext.fetch(fetchRequest)
-           
-             if let records = records as? [NSManagedObject]{
-                 for record in records {
-                     emptyBeerC.id = record.value(forKey: "id") as? Int16
-                     emptyBeerC.name = record.value(forKey: "name") as? String ?? ""
-                     emptyBeerC.tagline = record.value(forKey: "tagline") as? String ?? ""
-                     emptyBeerC.description = record.value(forKey: "descriptionBeer") as? String
-                     emptyBeerC.image_url = record.value(forKey: "image_url") as? String ?? ""
-                     emptyBeerC.abv = record.value(forKey: "abv") as? Double
-                     emptyBeerC.food_pairing = record.value(forKey: "food_pairing") as! [String]
-                     arrayBeerC.append(emptyBeerC)
-                     emptyBeerC = BeerFromCoredata()
-                 }
+            
+            if let records = records as? [NSManagedObject]{
+                for record in records {
+                    emptyBeerC.id = record.value(forKey: "id") as? Int16
+                    emptyBeerC.name = record.value(forKey: "name") as? String ?? ""
+                    emptyBeerC.tagline = record.value(forKey: "tagline") as? String ?? ""
+                    emptyBeerC.description = record.value(forKey: "descriptionBeer") as? String
+                    emptyBeerC.image_url = record.value(forKey: "image_url") as? String ?? ""
+                    emptyBeerC.abv = record.value(forKey: "abv") as? Double
+                    emptyBeerC.food_pairing = record.value(forKey: "food_pairing") as! [String]
+                    arrayBeerC.append(emptyBeerC)
+                    emptyBeerC = BeerFromCoredata()
+                }
                 
                 for beerC in arrayBeerC {
                     
@@ -197,17 +213,14 @@ class MainViewModel {
                 }
                 print(dataArray.count)
                 return dataArray
-             }
-         } catch let error as NSError {
+            }
+        } catch let error as NSError {
             print("No ha sido posible cargar \(error), \(error.userInfo)")
-             return []
-         }
-         // 4
-         return []
+            return []
+        }
+        // 4
+        return []
         
     }
-    
-    
-    
     
 }
