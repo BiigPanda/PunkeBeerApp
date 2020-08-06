@@ -19,10 +19,10 @@ class MainViewModel {
     }
     
     var sortDataArray: [Beer] = [] {
-           didSet{
-               refreshData()
-           }
-       }
+        didSet{
+            refreshData()
+        }
+    }
     
     func retriveDataList() {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
@@ -58,18 +58,30 @@ class MainViewModel {
     
     func sortedElements (option: Int) {
         switch option {
-            case 1:
-                self.sortDataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
+        case 1:
+            if self.sortDataArray.count > 0 {
+                self.sortDataArray =  self.sortDataArray.sorted { (BeerA, BeerB) -> Bool in
                     return BeerA.abv > BeerB.abv
+                }
+            }else {
+                self.dataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
+                    return BeerA.abv > BeerB.abv
+                }
             }
-            case 2:
-                self.sortDataArray = self.dataArray.sorted { (BeerA, BeerB) -> Bool in
-                        return BeerA.abv < BeerB.abv
+        case 2:
+            if self.sortDataArray.count > 0 {
+                self.sortDataArray =  self.sortDataArray.sorted { (BeerA, BeerB) -> Bool in
+                    return BeerA.abv < BeerB.abv
+                }
+            }else {
+                self.dataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
+                    return BeerA.abv < BeerB.abv
+                }
             }
-            case 3:
-                self.sortDataArray.removeAll()
-            default:
-                break
+        case 3:
+            self.sortDataArray.removeAll()
+        default:
+            break
         }
     }
     
@@ -96,16 +108,16 @@ class MainViewModel {
     func getFoodNetwork(searchFood: String) {
         self.sortDataArray.removeAll()
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(searchFood)") else { return }
-               
-               URLSession.shared.dataTask(with: url) { (data, response, error) in
-                   guard let json = data else { return }
-                   do {
-                       let decorder = JSONDecoder()
-                       self.sortDataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
-                   } catch let error {
-                       print("Ha ocurrido un error : \(error.localizedDescription)")
-                   }
-               }.resume()
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let json = data else { return }
+            do {
+                let decorder = JSONDecoder()
+                self.sortDataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
+            } catch let error {
+                print("Ha ocurrido un error : \(error.localizedDescription)")
+            }
+        }.resume()
     }
     
     func restartSearch() {
