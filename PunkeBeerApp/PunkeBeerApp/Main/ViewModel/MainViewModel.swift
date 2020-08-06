@@ -163,7 +163,6 @@ class MainViewModel {
           var arrayBeerC : [BeerFromCoredata] = []
           var emptyBeerC: BeerFromCoredata = BeerFromCoredata()
         
-        var arrayBeer: [Beer] = []
         var beer: Beer = Beer()
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BeerCoreData")
@@ -176,7 +175,7 @@ class MainViewModel {
                      emptyBeerC.id = record.value(forKey: "id") as? Int16
                      emptyBeerC.name = record.value(forKey: "name") as? String ?? ""
                      emptyBeerC.tagline = record.value(forKey: "tagline") as? String ?? ""
-                     emptyBeerC.description = record.value(forKey: "description") as? String
+                     emptyBeerC.description = record.value(forKey: "descriptionBeer") as? String
                      emptyBeerC.image_url = record.value(forKey: "image_url") as? String ?? ""
                      emptyBeerC.abv = record.value(forKey: "abv") as? Double
                      emptyBeerC.food_pairing = record.value(forKey: "food_pairing") as! [String]
@@ -193,11 +192,11 @@ class MainViewModel {
                     beer.image_url = beerC.image_url
                     beer.abv = beerC.abv ?? 0.0
                     beer.food_pairing = beerC.food_pairing
-                    arrayBeer.append(beer)
+                    dataArray.append(beer)
                     beer = Beer()
                 }
-                print(arrayBeer.count)
-                return arrayBeer
+                print(dataArray.count)
+                return dataArray
              }
          } catch let error as NSError {
             print("No ha sido posible cargar \(error), \(error.userInfo)")

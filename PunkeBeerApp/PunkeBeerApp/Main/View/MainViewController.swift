@@ -18,18 +18,19 @@ class MainViewController: UIViewController {
     
     var viewModel = MainViewModel()
     var countPage = 2
-    var arrayBeer: [Beer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewMain.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "maintableviewcell")
         configureView()
         bind()
-        arrayBeer = viewModel.loadBeers()
     }
     
     private func configureView() {
-        viewModel.retriveDataList()
+        viewModel.dataArray = viewModel.loadBeers()
+        if viewModel.dataArray.count == 0 {
+            viewModel.retriveDataList()
+        } 
         tableViewMain.keyboardDismissMode = .onDrag
         srchBar_Food.searchTextField.clearButtonMode = .never
     }
