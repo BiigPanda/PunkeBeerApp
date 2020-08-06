@@ -18,12 +18,14 @@ class MainViewController: UIViewController {
     
     var viewModel = MainViewModel()
     var countPage = 2
+    var arrayBeer: [Beer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewMain.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "maintableviewcell")
         configureView()
         bind()
+        arrayBeer = viewModel.loadBeers()
     }
     
     private func configureView() {

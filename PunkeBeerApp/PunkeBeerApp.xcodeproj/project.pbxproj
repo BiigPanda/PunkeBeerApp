@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25440F17F92BF37EB9C26742 /* Pods_PunkeBeerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD0B89747A1BFA4FFE610F23 /* Pods_PunkeBeerAppTests.framework */; };
+		9A6E80C424DC6D20002CA865 /* BeerFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E80C324DC6D20002CA865 /* BeerFromCoreData.swift */; };
 		9A95E73924D7730E00F33F51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73824D7730E00F33F51 /* AppDelegate.swift */; };
 		9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */; };
 		9A95E74024D7730E00F33F51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A95E73E24D7730E00F33F51 /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		47BA9A47A0A7506770155A71 /* Pods-PunkeBeerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerApp.debug.xcconfig"; path = "Target Support Files/Pods-PunkeBeerApp/Pods-PunkeBeerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4FC11E352F7E7E4876A05E73 /* Pods-PunkeBeerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PunkeBeerAppTests.release.xcconfig"; path = "Target Support Files/Pods-PunkeBeerAppTests/Pods-PunkeBeerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		880AAA0774A3E4E16B796F07 /* Pods_PunkeBeerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PunkeBeerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A6E80C324DC6D20002CA865 /* BeerFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFromCoreData.swift; sourceTree = "<group>"; };
 		9A95E73524D7730E00F33F51 /* PunkeBeerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PunkeBeerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A95E73824D7730E00F33F51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A95E73A24D7730E00F33F51 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				9A95E77124D778F400F33F51 /* Beer.swift */,
+				9A6E80C324DC6D20002CA865 /* BeerFromCoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				9A95E77824D8302C00F33F51 /* MainTableViewCell.swift in Sources */,
 				9A95E73B24D7730E00F33F51 /* SceneDelegate.swift in Sources */,
 				9A95E74324D7730E00F33F51 /* PunkeBeerApp.xcdatamodeld in Sources */,
+				9A6E80C424DC6D20002CA865 /* BeerFromCoreData.swift in Sources */,
 				9A95E77024D7784400F33F51 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
