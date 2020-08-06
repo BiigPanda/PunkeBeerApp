@@ -82,10 +82,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableViewMain.dequeueReusableCell(withIdentifier: "maintableviewcell") as! MainTableViewCell
-        var object = viewModel.dataArray[indexPath.row]
+        var object : Beer
         
         if viewModel.sortDataArray.count != 0 {
                    object = viewModel.sortDataArray[indexPath.row]
+        } else {
+                   object = viewModel.dataArray[indexPath.row]
         }
         cell.lblNameBeer.text = object.name
         cell.lblTagLine.text = object.tagline
@@ -124,6 +126,13 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
             return
         }
         viewModel.searchByFood(searchTextFood: text)
+
+        if viewModel.sortDataArray.count == 0 {
+            DispatchQueue.main.async {
+                self.viewModel.getFoodNetwork(searchFood: text)
+            }
+        }
         bind()
+        srchBar_Food.resignFirstResponder()
     }
 }
