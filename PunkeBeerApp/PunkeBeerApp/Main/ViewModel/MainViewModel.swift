@@ -292,7 +292,6 @@ class MainViewModel {
             for (_,food) in subJson["food_pairing"] {
                 beer.food_pairing.append(food.string!)
             }
-            beer.food_pairing = [subJson["food_pairing"].stringValue]
             saveCoreData(objectBeer: beer)
             beers.append(beer)
             beer = Beer()
