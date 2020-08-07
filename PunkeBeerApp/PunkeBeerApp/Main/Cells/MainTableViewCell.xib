@@ -12,7 +12,7 @@
         <tableViewCell contentMode="scaleToFill" restorationIdentifier="maintableviewcell" selectionStyle="default" indentationWidth="10" reuseIdentifier="maintableviewcell" id="KGk-i7-Jjw" customClass="MainTableViewCell" customModule="PunkeBeerApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -23,23 +23,17 @@
                             <constraint firstAttribute="width" constant="78" id="bB3-8h-L61"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="TagLine" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pT3-h5-UgB">
-                        <rect key="frame" x="92" y="9" width="224" height="19"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKj-40-TO4">
-                        <rect key="frame" x="92" y="30" width="224" height="88"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="TagLine" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pT3-h5-UgB">
+                        <rect key="frame" x="92" y="5" width="224" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="88" id="9z5-F5-zn2"/>
+                            <constraint firstAttribute="height" constant="24" id="oc1-nT-uan"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x86-oI-hF8">
-                        <rect key="frame" x="92" y="123" width="224" height="16"/>
+                        <rect key="frame" x="92" y="321" width="224" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="224" id="A1y-QW-lrV"/>
                         </constraints>
@@ -48,30 +42,38 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGg-Pq-xlE">
-                        <rect key="frame" x="6" y="123" width="70" height="16"/>
+                        <rect key="frame" x="10" y="123" width="70" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="95z-Vu-Sdn"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsE-Iy-Szt">
+                        <rect key="frame" x="92" y="33" width="212" height="280"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="pT3-h5-UgB" firstAttribute="leading" secondItem="96V-Mo-qTG" secondAttribute="trailing" constant="8" id="0y2-Di-WPN"/>
-                    <constraint firstItem="pKj-40-TO4" firstAttribute="top" secondItem="pT3-h5-UgB" secondAttribute="bottom" constant="2" id="49a-wt-oha"/>
-                    <constraint firstItem="pT3-h5-UgB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="5Qu-hm-Hfc"/>
-                    <constraint firstAttribute="trailing" secondItem="pKj-40-TO4" secondAttribute="trailing" constant="4" id="A43-bV-of3"/>
+                    <constraint firstItem="pT3-h5-UgB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="5Qu-hm-Hfc"/>
+                    <constraint firstItem="dsE-Iy-Szt" firstAttribute="leading" secondItem="96V-Mo-qTG" secondAttribute="trailing" constant="8" id="6OD-x6-tQf"/>
+                    <constraint firstAttribute="trailing" secondItem="dsE-Iy-Szt" secondAttribute="trailing" constant="16" id="CYG-VD-Pui"/>
                     <constraint firstAttribute="trailing" secondItem="x86-oI-hF8" secondAttribute="trailing" constant="4" id="Ejt-cp-yJi"/>
+                    <constraint firstItem="oGg-Pq-xlE" firstAttribute="centerX" secondItem="96V-Mo-qTG" secondAttribute="centerX" id="Hlu-FI-ylz"/>
                     <constraint firstItem="x86-oI-hF8" firstAttribute="leading" secondItem="pT3-h5-UgB" secondAttribute="leading" id="Jx6-WI-3C5"/>
-                    <constraint firstItem="pKj-40-TO4" firstAttribute="leading" secondItem="96V-Mo-qTG" secondAttribute="trailing" constant="8" id="L1h-cJ-nwF"/>
                     <constraint firstItem="96V-Mo-qTG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="LKQ-eg-oq5"/>
-                    <constraint firstAttribute="bottom" secondItem="x86-oI-hF8" secondAttribute="bottom" constant="11" id="OZm-cg-fWh"/>
-                    <constraint firstItem="x86-oI-hF8" firstAttribute="top" secondItem="pKj-40-TO4" secondAttribute="bottom" constant="5" id="XeY-Jc-Exu"/>
+                    <constraint firstItem="x86-oI-hF8" firstAttribute="top" secondItem="dsE-Iy-Szt" secondAttribute="bottom" constant="8" id="NMa-kK-plB"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="oGg-Pq-xlE" secondAttribute="bottom" constant="30" id="O4z-4l-Czi"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="x86-oI-hF8" secondAttribute="bottom" constant="20" id="OZm-cg-fWh"/>
                     <constraint firstItem="96V-Mo-qTG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="19" id="Xfz-Dz-0Ko"/>
-                    <constraint firstAttribute="bottom" secondItem="oGg-Pq-xlE" secondAttribute="bottom" constant="11" id="v78-RC-Wa5"/>
+                    <constraint firstItem="dsE-Iy-Szt" firstAttribute="top" secondItem="pT3-h5-UgB" secondAttribute="bottom" constant="4" id="dB3-Jm-SBA"/>
                     <constraint firstItem="oGg-Pq-xlE" firstAttribute="top" secondItem="96V-Mo-qTG" secondAttribute="bottom" constant="8" id="vom-hg-uui"/>
-                    <constraint firstItem="oGg-Pq-xlE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="6" id="wPV-Ku-yGs"/>
                     <constraint firstAttribute="trailing" secondItem="pT3-h5-UgB" secondAttribute="trailing" constant="4" id="zvX-0r-QBM"/>
                 </constraints>
             </tableViewCellContentView>
@@ -79,7 +81,7 @@
             <connections>
                 <outlet property="imgBeer" destination="96V-Mo-qTG" id="i4x-6c-Lpy"/>
                 <outlet property="lblAbv" destination="x86-oI-hF8" id="V9K-cf-NfT"/>
-                <outlet property="lblDescription" destination="pKj-40-TO4" id="JWg-v8-J0b"/>
+                <outlet property="lblDescription" destination="dsE-Iy-Szt" id="cI0-54-mU1"/>
                 <outlet property="lblNameBeer" destination="oGg-Pq-xlE" id="Zom-tb-JmG"/>
                 <outlet property="lblTagLine" destination="pT3-h5-UgB" id="yxO-Lu-Fki"/>
             </connections>

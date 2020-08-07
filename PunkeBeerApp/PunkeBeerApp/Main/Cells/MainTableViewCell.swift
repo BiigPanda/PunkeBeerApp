@@ -13,7 +13,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var imgBeer: UIImageView!
     @IBOutlet weak var lblNameBeer: UILabel!
     @IBOutlet weak var lblTagLine: UILabel!
-    @IBOutlet weak var lblDescription: UILabel!
+    @IBOutlet weak var lblDescription: UITextView!
     @IBOutlet weak var lblAbv: UILabel!
     
     override func awakeFromNib() {
