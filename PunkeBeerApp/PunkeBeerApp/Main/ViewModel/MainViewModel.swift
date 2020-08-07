@@ -32,23 +32,6 @@ class MainViewModel {
     var countPage: Int16 = 0
     var countPageInit: Int = 2
     
-    //    func retriveDataList() {
-    //        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
-    //
-    //        URLSession.shared.dataTask(with: url) { (data, response, error) in
-    //
-    //            guard let json = data else { return }
-    //
-    //            do {
-    //                let decorder = JSONDecoder()
-    //                self.dataArray = try decorder.decode([Beer].self, from: json)
-    //            } catch let error {
-    //                print("Ha ocurrido un error : \(error.localizedDescription)")
-    //            }
-    //        }.resume()
-    //    }
-    
-    
     func retriveDataList(completionHandler: @escaping (_ result: [Beer], _ error: Error?) -> Void) {
         var beers : [Beer] = []
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
@@ -72,27 +55,6 @@ class MainViewModel {
         
     }
     
-    //    func retriveNextDataList(pageIndex: String) {
-    //        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(pageIndex)") else { return }
-    //
-    //        URLSession.shared.dataTask(with: url) { (data, response, error) in
-    //
-    //            guard let json = data else { return }
-    //
-    //            do {
-    //                let decorder = JSONDecoder()
-    //                self.dataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
-    //                for beer in self.dataArray {
-    //                                        self.saveCoreData(objectBeer: beer)
-    //                                    }
-    //                self.saveCountpage(countpage: self.countPage)
-    //            } catch let error {
-    //                print("Ha ocurrido un error : \(error.localizedDescription)")
-    //            }
-    //        }.resume()
-    //
-    //    }
-    
     func retriveNextDataList(pageIndex: String, completionHandler: @escaping (_ result: [Beer], _ error: Error?) -> Void)  {
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(pageIndex)") else { return }
         var beers : [Beer] = []
@@ -115,22 +77,6 @@ class MainViewModel {
         }
     }
     
-    //    func getFoodNetwork(searchFood: String) {
-    //        self.sortDataArray.removeAll()
-    //        let searchFoodUnderline = searchFood.replacingOccurrences(of: " ", with: "_")
-    //        guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(searchFoodUnderline)") else { return }
-    //
-    //        URLSession.shared.dataTask(with: url) { (data, response, error) in
-    //            guard let json = data else { return }
-    //            do {
-    //                let decorder = JSONDecoder()
-    //                self.sortDataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
-    //            } catch let error {
-    //                print("Ha ocurrido un error : \(error.localizedDescription)")
-    //            }
-    //        }.resume()
-    //    }
-    
     func getFoodNetwork(searchFood: String, completionHandler: @escaping (_ result: [Beer], _ error: Error?) -> Void) {
         let searchFoodUnderline = searchFood.replacingOccurrences(of: " ", with: "_")
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(searchFoodUnderline)") else { return }
@@ -152,6 +98,29 @@ class MainViewModel {
                 break
             }
         }
+    }
+  
+    func searchByFood(searchTextFood: String) {
+        guard !searchTextFood.isEmpty else {
+            restartSearch()
+            return
+        }
+        
+        filterDataArray = dataArray.filter({ (Beer) -> Bool in
+            var check: Bool = false
+            for beerfood in Beer.food_pairing {
+                let stringMatch = beerfood.lowercased().range(of: searchTextFood.lowercased())
+                check = stringMatch != nil ? true : false
+                if check == true {
+                    return check
+                }
+            }
+            return check
+        })
+    }
+    
+    func restartSearch() {
+        self.filterDataArray.removeAll()
     }
     
     func sortedElements (option: Int) {
@@ -182,30 +151,6 @@ class MainViewModel {
             break
         }
     }
-    
-    func searchByFood(searchTextFood: String) {
-        guard !searchTextFood.isEmpty else {
-            restartSearch()
-            return
-        }
-        
-        filterDataArray = dataArray.filter({ (Beer) -> Bool in
-            var check: Bool = false
-            for beerfood in Beer.food_pairing {
-                let stringMatch = beerfood.lowercased().range(of: searchTextFood.lowercased())
-                check = stringMatch != nil ? true : false
-                if check == true {
-                    return check
-                }
-            }
-            return check
-        })
-    }
-    
-    func restartSearch() {
-        self.filterDataArray.removeAll()
-    }
-    
     
     func saveCoreData(objectBeer: Beer) {
         if !isEntityAttributeExist(id: Int(objectBeer.id), entityName: "BeerCoreData") {
@@ -274,7 +219,6 @@ class MainViewModel {
             print("No ha sido posible cargar \(error), \(error.userInfo)")
             return 0
         }
-        // 4
         return 0
     }
     
@@ -309,48 +253,9 @@ class MainViewModel {
             print("No ha sido posible cargar \(error), \(error.userInfo)")
             return []
         }
-        // 4
         return []
         
     }
-    
-    func loadBeersWithFoodSearch(FoodSearch: String) -> [Beer] {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        var arrayBeerC : [Beer] = []
-        var emptyBeerC: Beer = Beer()
-        
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BeerCoreData")
-        fetchRequest.predicate = NSPredicate(format: "food_pairing = '%@'", FoodSearch)
-        
-        do {
-            let records = try managedContext.fetch(fetchRequest)
-            
-            if let records = records as? [NSManagedObject]{
-                for record in records {
-                    emptyBeerC.id = (record.value(forKey: "id") as? Int16)!
-                    emptyBeerC.name = record.value(forKey: "name") as? String ?? ""
-                    emptyBeerC.tagline = record.value(forKey: "tagline") as? String ?? ""
-                    emptyBeerC.description = (record.value(forKey: "descriptionBeer") as? String)!
-                    emptyBeerC.image_url = record.value(forKey: "image_url") as? String ?? ""
-                    emptyBeerC.abv = (record.value(forKey: "abv") as? Double)!
-                    emptyBeerC.food_pairing = record.value(forKey: "food_pairing") as! [String]
-                    arrayBeerC.append(emptyBeerC)
-                    emptyBeerC = Beer()
-                }
-                
-                return arrayBeerC
-            }
-        } catch let error as NSError {
-            print("No ha sido posible cargar \(error), \(error.userInfo)")
-            return []
-        }
-        // 4
-        return []
-        
-    }
-    
     
     func parsedBeer(json: JSON) -> [Beer] {
         var beer = Beer()
