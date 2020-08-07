@@ -208,6 +208,7 @@ class MainViewModel {
     
     
     func saveCoreData(objectBeer: Beer) {
+        if !isEntityAttributeExist(id: Int(objectBeer.id), entityName: "BeerCoreData") {
         guard let beerEntity = NSEntityDescription.entity(forEntityName: "BeerCoreData", in: self.context!) else {
             return
         }
@@ -224,6 +225,7 @@ class MainViewModel {
             try self.context!.save()
         } catch let error as NSError {
             print("Error al guardar", error.localizedDescription)
+        }
         }
       }
     
