@@ -103,9 +103,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
             object = viewModel.dataArray[indexPath.row]
         }
         cell.lblNameBeer.text = object.name
-        cell.lblTagLine.text = object.tagline
+        cell.lblTagLine.text = "Tagline: \(object.tagline)"
+        cell.lblDescription.sizeToFit()
         cell.lblDescription.text = object.description
-        cell.lblAbv.text = String(object.abv)
+        cell.lblAbv.text = "ABV: \(String(object.abv))"
         cell.imgBeer.sd_setImage(with: URL(string: object.image_url), placeholderImage: nil)
         
         return cell
