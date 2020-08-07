@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 
 class MainViewModel {
@@ -26,47 +28,94 @@ class MainViewModel {
             refreshData()
         }
     }
-    
     var context: NSManagedObjectContext?
+    var countPage: Int16 = 0
+    var countPageInit: Int = 2
 
-    func retriveDataList() {
+//    func retriveDataList() {
+//        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//
+//            guard let json = data else { return }
+//
+//            do {
+//                let decorder = JSONDecoder()
+//                self.dataArray = try decorder.decode([Beer].self, from: json)
+//            } catch let error {
+//                print("Ha ocurrido un error : \(error.localizedDescription)")
+//            }
+//        }.resume()
+//    }
+    
+    
+    func retriveDataList(completionHandler: @escaping (_ result: [Beer], _ error: Error?) -> Void) {
+        var beers : [Beer] = []
         guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=1") else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            guard let json = data else { return }
-            
-            do {
-                let decorder = JSONDecoder()
-                self.dataArray = try decorder.decode([Beer].self, from: json)
-                for beer in self.dataArray {
-                    self.saveCoreData(objectBeer: beer)
-                }
-            } catch let error {
-                print("Ha ocurrido un error : \(error.localizedDescription)")
-            }
-        }.resume()
+        AF.request(url).responseJSON { (response) in
+                  switch response.result {
+                         case .success(_):
+                             guard let result = response.value as? [Any] else{
+                                 assertionFailure()
+                                 return
+                             }
+                             let json = JSON(result)
+                             beers =  self.parsedBeer(json: json)
+                             print(json)
+                             completionHandler(beers,nil)
+                             break
+                         case .failure(let error):
+                             completionHandler(beers,error)
+                             break
+                         }
+                  
+              }
+
     }
     
-    func retriveNextDataList(pageIndex: String) {
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(pageIndex)") else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            guard let json = data else { return }
-            
-            do {
-                let decorder = JSONDecoder()
-                self.dataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
-                for beer in self.dataArray {
-                    self.saveCoreData(objectBeer: beer)
-                }
-                self.saveCountpage(countpage: Int16(pageIndex)!)
-            } catch let error {
-                print("Ha ocurrido un error : \(error.localizedDescription)")
-            }
-        }.resume()
-    }
+//    func retriveNextDataList(pageIndex: String) {
+//        guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(pageIndex)") else { return }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//
+//            guard let json = data else { return }
+//
+//            do {
+//                let decorder = JSONDecoder()
+//                self.dataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
+//                for beer in self.dataArray {
+//                                        self.saveCoreData(objectBeer: beer)
+//                                    }
+//                self.saveCountpage(countpage: self.countPage)
+//            } catch let error {
+//                print("Ha ocurrido un error : \(error.localizedDescription)")
+//            }
+//        }.resume()
+//
+//    }
+    
+    func retriveNextDataList(pageIndex: String, completionHandler: @escaping (_ result: [Beer], _ error: Error?) -> Void)  {
+           guard let url = URL(string: "https://api.punkapi.com/v2/beers?page=\(pageIndex)") else { return }
+           var beers : [Beer] = []
+           AF.request(url).responseJSON { (response) in
+                         switch response.result {
+                                case .success(_):
+                                    guard let result = response.value as? [Any] else{
+                                        assertionFailure()
+                                        return
+                                    }
+                                    let json = JSON(result)
+                                    beers =  self.parsedBeer(json: json)
+                                    print(json)
+                                    completionHandler(beers,nil)
+                                    break
+                                case .failure(let error):
+                                    completionHandler(beers,error)
+                                    break
+                                }
+                         
+                     }
+       }
     
     func getFoodNetwork(searchFood: String) {
         self.sortDataArray.removeAll()
@@ -87,21 +136,21 @@ class MainViewModel {
         switch option {
         case 1:
             if self.sortDataArray.count > 0 {
-                self.sortDataArray =  self.sortDataArray.sorted { (BeerA, BeerB) -> Bool in
+                self.sortDataArray.sort { (BeerA, BeerB) -> Bool in
                     return BeerA.abv > BeerB.abv
                 }
             }else {
-                self.dataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
+                self.dataArray.sort { (BeerA, BeerB) -> Bool in
                     return BeerA.abv > BeerB.abv
                 }
             }
         case 2:
             if self.sortDataArray.count > 0 {
-                self.sortDataArray =  self.sortDataArray.sorted { (BeerA, BeerB) -> Bool in
+                self.sortDataArray.sort { (BeerA, BeerB) -> Bool in
                     return BeerA.abv < BeerB.abv
                 }
             }else {
-                self.dataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
+                self.dataArray.sort { (BeerA, BeerB) -> Bool in
                     return BeerA.abv < BeerB.abv
                 }
             }
@@ -138,7 +187,7 @@ class MainViewModel {
     
     
     func saveCoreData(objectBeer: Beer) {
-       
+       print("Estoooooooy guardando datosssssssss")
         guard let beerEntity = NSEntityDescription.entity(forEntityName: "BeerCoreData", in: self.context!) else {
             return
         }
@@ -173,13 +222,35 @@ class MainViewModel {
         
     }
     
+    func  loadCountPage() -> Int16  {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Utils")
+               
+               do {
+                        let records = try managedContext.fetch(fetchRequest)
+                        
+                        if let records = records as? [NSManagedObject]{
+                            for record in records {
+                                self.countPage = record.value(forKey: "countPage") as? Int16 ?? 0
+                            }
+
+                            return self.countPage
+                        }
+                    } catch let error as NSError {
+                        print("No ha sido posible cargar \(error), \(error.userInfo)")
+                        return 0
+                    }
+                    // 4
+                    return 0
+    }
+    
     func loadBeers() -> [Beer] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
-        var arrayBeerC : [BeerFromCoredata] = []
-        var emptyBeerC: BeerFromCoredata = BeerFromCoredata()
+        var arrayBeerC : [Beer] = []
+        var emptyBeerC: Beer = Beer()
         
-        var beer: Beer = Beer()
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BeerCoreData")
         
@@ -188,31 +259,19 @@ class MainViewModel {
             
             if let records = records as? [NSManagedObject]{
                 for record in records {
-                    emptyBeerC.id = record.value(forKey: "id") as? Int16
+                    emptyBeerC.id = (record.value(forKey: "id") as? Int16)!
                     emptyBeerC.name = record.value(forKey: "name") as? String ?? ""
                     emptyBeerC.tagline = record.value(forKey: "tagline") as? String ?? ""
-                    emptyBeerC.description = record.value(forKey: "descriptionBeer") as? String
+                    emptyBeerC.description = (record.value(forKey: "descriptionBeer") as? String)!
                     emptyBeerC.image_url = record.value(forKey: "image_url") as? String ?? ""
-                    emptyBeerC.abv = record.value(forKey: "abv") as? Double
+                    emptyBeerC.abv = (record.value(forKey: "abv") as? Double)!
                     emptyBeerC.food_pairing = record.value(forKey: "food_pairing") as! [String]
                     arrayBeerC.append(emptyBeerC)
-                    emptyBeerC = BeerFromCoredata()
+                    emptyBeerC = Beer()
                 }
                 
-                for beerC in arrayBeerC {
-                    
-                    beer.id = beerC.id ?? 0
-                    beer.name = beerC.name
-                    beer.tagline = beerC.tagline ?? ""
-                    beer.description = beerC.description ?? ""
-                    beer.image_url = beerC.image_url
-                    beer.abv = beerC.abv ?? 0.0
-                    beer.food_pairing = beerC.food_pairing
-                    dataArray.append(beer)
-                    beer = Beer()
-                }
-                print(dataArray.count)
-                return dataArray
+                print("Load arraaaaayyyyyyyyy",arrayBeerC.count)
+                return arrayBeerC
             }
         } catch let error as NSError {
             print("No ha sido posible cargar \(error), \(error.userInfo)")
@@ -220,6 +279,30 @@ class MainViewModel {
         }
         // 4
         return []
+        
+    }
+    
+    
+    func parsedBeer(json: JSON) -> [Beer] {
+        var beer = Beer()
+        var beers : [Beer] = []
+        for (_,subJson):(String, JSON) in json {
+            print(json)
+            beer.id = Int16(subJson["id"].intValue)
+            beer.name = subJson["name"].stringValue
+            beer.tagline = subJson["tagline"].stringValue
+            beer.description = subJson["description"].stringValue
+            beer.image_url = subJson["image_url"].stringValue
+            beer.abv = subJson["abv"].doubleValue
+            for (_,food) in subJson["food_pairing"] {
+                beer.food_pairing.append(food.string!)
+            }
+            beer.food_pairing = [subJson["food_pairing"].stringValue]
+            saveCoreData(objectBeer: beer)
+            beers.append(beer)
+            beer = Beer()
+        }
+        return beers
         
     }
     

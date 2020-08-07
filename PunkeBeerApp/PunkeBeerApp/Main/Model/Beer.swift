@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Beer: Codable {
+class Beer: Codable {
     var id: Int16 = 0
     var name: String = ""
     var tagline: String = ""
@@ -17,3 +17,7 @@ struct Beer: Codable {
     var abv: Double = 0.0
     var food_pairing: [String] = []
 }
+
+
+
+

@@ -31,7 +31,10 @@ class MainViewController: UIViewController {
     private func configureView() {
         viewModel.dataArray = viewModel.loadBeers()
         if viewModel.dataArray.count == 0 {
-            viewModel.retriveDataList()
+            viewModel.retriveDataList { (beers, error) in
+                self.viewModel.dataArray = beers
+                self.bind()
+            }
         } 
         tableViewMain.keyboardDismissMode = .onDrag
         srchBar_Food.searchTextField.clearButtonMode = .never
@@ -105,8 +108,27 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.dataArray.count - 1 {
-            viewModel.retriveNextDataList(pageIndex: String(countPage))
-            countPage += 1
+            viewModel.countPage = viewModel.loadCountPage()
+            if viewModel.countPage > viewModel.countPageInit {
+                viewModel.retriveNextDataList(pageIndex: String(viewModel.countPage)) { (beers, errors) in
+                    self.viewModel.dataArray.append(contentsOf: beers)
+                    self.bind()
+                }
+                viewModel.countPage += 1
+                viewModel.saveCountpage(countpage: viewModel.countPage)
+                print(viewModel.countPage)
+                print(viewModel.countPageInit)
+            } else {
+                 viewModel.retriveNextDataList(pageIndex: String(viewModel.countPageInit)) { (beers, errors) in
+                                   self.viewModel.dataArray.append(contentsOf: beers)
+                    self.bind()
+                }
+                viewModel.countPage = Int16(viewModel.countPageInit)
+                viewModel.countPage += 1
+                viewModel.saveCountpage(countpage: viewModel.countPage)
+                print("Pasadoooooooooooo",viewModel.countPage)
+                print(viewModel.countPageInit)
+            }
             bind()
         }
     }

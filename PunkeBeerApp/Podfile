@@ -4,10 +4,12 @@
 target 'PunkeBeerApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
 pod 'Alamofire'
 pod 'JGProgressHUD'
 pod 'SDWebImage'
 pod 'SwiftMessages'
+pod 'SwiftyJSON'
 
   # Pods for PunkeBeerApp
 
