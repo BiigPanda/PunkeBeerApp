@@ -6,6 +6,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="BEER.TTF">
+            <string>Beer</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -16,11 +21,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="img_mainImage" translatesAutoresizingMaskIntoConstraints="NO" id="l3l-rf-PkT">
-                                <rect key="frame" x="63" y="188" width="289" height="324"/>
+                                <rect key="frame" x="63" y="188" width="289" height="295.5"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punker Beer App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-46-p7O">
-                                <rect key="frame" x="63" y="539" width="289" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Punker Beer App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epC-46-p7O">
+                                <rect key="frame" x="63" y="479" width="289" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="146" id="UgH-kC-ZUB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Beer" family="Beer" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -29,10 +37,10 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="epC-46-p7O" secondAttribute="trailing" constant="62" id="1P3-e6-Vw0"/>
                             <constraint firstItem="epC-46-p7O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="HNL-fx-tqE"/>
-                            <constraint firstItem="epC-46-p7O" firstAttribute="top" secondItem="l3l-rf-PkT" secondAttribute="bottom" constant="27" id="Wo1-5X-zZN"/>
+                            <constraint firstItem="epC-46-p7O" firstAttribute="top" secondItem="l3l-rf-PkT" secondAttribute="bottom" constant="-4.5" id="Wo1-5X-zZN"/>
                             <constraint firstItem="l3l-rf-PkT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="XmM-PG-H2q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="l3l-rf-PkT" secondAttribute="trailing" constant="62" id="dfp-Re-nki"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="epC-46-p7O" secondAttribute="bottom" constant="281" id="mPs-oR-fk8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="epC-46-p7O" secondAttribute="bottom" constant="237" id="mPs-oR-fk8"/>
                             <constraint firstItem="l3l-rf-PkT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="144" id="tYw-ga-nbQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
