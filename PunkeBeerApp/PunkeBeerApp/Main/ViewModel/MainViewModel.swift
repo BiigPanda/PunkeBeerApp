@@ -115,40 +115,64 @@ class MainViewModel {
                      }
        }
     
-    func getFoodNetwork(searchFood: String) {
-        self.sortDataArray.removeAll()
-        guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(searchFood)") else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let json = data else { return }
-            do {
-                let decorder = JSONDecoder()
-                self.sortDataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
-            } catch let error {
-                print("Ha ocurrido un error : \(error.localizedDescription)")
-            }
-        }.resume()
+//    func getFoodNetwork(searchFood: String) {
+//        self.sortDataArray.removeAll()
+//        let searchFoodUnderline = searchFood.replacingOccurrences(of: " ", with: "_")
+//        guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(searchFoodUnderline)") else { return }
+//
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//            guard let json = data else { return }
+//            do {
+//                let decorder = JSONDecoder()
+//                self.sortDataArray.append(contentsOf: try decorder.decode([Beer].self, from: json))
+//            } catch let error {
+//                print("Ha ocurrido un error : \(error.localizedDescription)")
+//            }
+//        }.resume()
+//    }
+    
+    func getFoodNetwork(searchFood: String, completionHandler: @escaping (_ result: [Beer], _ error: Error?) -> Void) {
+            let searchFoodUnderline = searchFood.replacingOccurrences(of: " ", with: "_")
+                   guard let url = URL(string: "https://api.punkapi.com/v2/beers?food=\(searchFoodUnderline)") else { return }
+                   
+                    var beers : [Beer] = []
+                             AF.request(url).responseJSON { (response) in
+                                           switch response.result {
+                                                  case .success(_):
+                                                      guard let result = response.value as? [Any] else{
+                                                          assertionFailure()
+                                                          return
+                                                      }
+                                                      let json = JSON(result)
+                                                      beers =  self.parsedBeer(json: json)
+                                                      completionHandler(beers,nil)
+                                                      break
+                                                  case .failure(let error):
+                                                      completionHandler(beers,error)
+                                                      break
+                                                  }
+                                       }
     }
     
     func sortedElements (option: Int) {
         switch option {
         case 1:
             if self.sortDataArray.count > 0 {
-                self.sortDataArray.sort { (BeerA, BeerB) -> Bool in
+                self.sortDataArray =  self.sortDataArray.sorted { (BeerA, BeerB) -> Bool in
                     return BeerA.abv > BeerB.abv
                 }
             }else {
-                self.dataArray.sort { (BeerA, BeerB) -> Bool in
+                self.sortDataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
                     return BeerA.abv > BeerB.abv
                 }
             }
         case 2:
             if self.sortDataArray.count > 0 {
-                self.sortDataArray.sort { (BeerA, BeerB) -> Bool in
+                self.sortDataArray =  self.sortDataArray.sorted { (BeerA, BeerB) -> Bool in
                     return BeerA.abv < BeerB.abv
                 }
             }else {
-                self.dataArray.sort { (BeerA, BeerB) -> Bool in
+                self.sortDataArray =  self.dataArray.sorted { (BeerA, BeerB) -> Bool in
                     return BeerA.abv < BeerB.abv
                 }
             }
@@ -160,7 +184,6 @@ class MainViewModel {
     }
     
     func searchByFood(searchTextFood: String) {
-        
         guard !searchTextFood.isEmpty else {
             restartSearch()
             return
@@ -202,6 +225,17 @@ class MainViewModel {
         } catch let error as NSError {
             print("Error al guardar", error.localizedDescription)
         }
+      }
+    
+    
+    func isEntityAttributeExist(id: Int, entityName: String) -> Bool {
+      let appDelegate = UIApplication.shared.delegate as! AppDelegate
+      let managedContext = appDelegate.persistentContainer.viewContext
+      let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+      fetchRequest.predicate = NSPredicate(format: "id == %i", id)
+
+      let res = try! managedContext.fetch(fetchRequest)
+      return res.count > 0 ? true : false
     }
     
     func  saveCountpage(countpage: Int16)  {
@@ -250,6 +284,43 @@ class MainViewModel {
         
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BeerCoreData")
+        
+        do {
+            let records = try managedContext.fetch(fetchRequest)
+            
+            if let records = records as? [NSManagedObject]{
+                for record in records {
+                    emptyBeerC.id = (record.value(forKey: "id") as? Int16)!
+                    emptyBeerC.name = record.value(forKey: "name") as? String ?? ""
+                    emptyBeerC.tagline = record.value(forKey: "tagline") as? String ?? ""
+                    emptyBeerC.description = (record.value(forKey: "descriptionBeer") as? String)!
+                    emptyBeerC.image_url = record.value(forKey: "image_url") as? String ?? ""
+                    emptyBeerC.abv = (record.value(forKey: "abv") as? Double)!
+                    emptyBeerC.food_pairing = record.value(forKey: "food_pairing") as! [String]
+                    arrayBeerC.append(emptyBeerC)
+                    emptyBeerC = Beer()
+                }
+                
+                return arrayBeerC
+            }
+        } catch let error as NSError {
+            print("No ha sido posible cargar \(error), \(error.userInfo)")
+            return []
+        }
+        // 4
+        return []
+        
+    }
+    
+    func loadBeersWithFoodSearch(FoodSearch: String) -> [Beer] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        var arrayBeerC : [Beer] = []
+        var emptyBeerC: Beer = Beer()
+        
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BeerCoreData")
+        fetchRequest.predicate = NSPredicate(format: "food_pairing = '%@'", FoodSearch)
         
         do {
             let records = try managedContext.fetch(fetchRequest)

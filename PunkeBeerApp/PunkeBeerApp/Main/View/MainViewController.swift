@@ -163,7 +163,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
 
         if viewModel.sortDataArray.count == 0 {
             DispatchQueue.main.async {
-                self.viewModel.getFoodNetwork(searchFood: text)
+                self.viewModel.getFoodNetwork(searchFood: text) { (beers, error) in
+                    if beers.count == 0 {
+                        self.showAlert()
+                        searchBar.searchTextField.text = ""
+                    } else {
+                        self.viewModel.sortDataArray.append(contentsOf: beers)
+                        self.viewModel.dataArray.append(contentsOf: beers)
+                    }
+                }
             }
         }
         bind()
@@ -174,4 +182,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
           let delegate = UIApplication.shared.delegate as! AppDelegate
           viewModel.context = delegate.persistentContainer.viewContext
       }
+    
+    func showAlert() {
+        let alert = UIAlertController(title: "Not Found", message: "Beer its not found", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true, completion: nil)
+    }
 }
