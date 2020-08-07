@@ -19,7 +19,6 @@ class MainViewController: UIViewController {
     
     
     var viewModel = MainViewModel()
-    var countPage = 2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,13 +57,13 @@ class MainViewController: UIViewController {
     
     @IBAction func sortBeers(_ sender: Any) {
         let optionMenu = UIAlertController(title: nil, message: "Choose option for sort Beers", preferredStyle: .actionSheet)
-    
-        let deleteAction = UIAlertAction(title: "Sort Increase ABV", style: .default) { action -> Void in
+        
+        let deleteAction = UIAlertAction(title: "Sort Beers by ABV in Increase Order", style: .default) { action -> Void in
             self.viewModel.sortedElements(option: 1)
             self.btn_Filter.setImage(UIImage(named: "img_filter_enabled"), for: .normal)
             self.bind()
         }
-        let saveAction = UIAlertAction(title: "Sort Decrease ABV", style: .default) { action -> Void in
+        let saveAction = UIAlertAction(title: "Sort Beers by ABV in Decrease Order", style: .default) { action -> Void in
             self.viewModel.sortedElements(option: 2)
             self.btn_Filter.setImage(UIImage(named: "img_filter_enabled"), for: .normal)
             self.bind()
@@ -74,11 +73,11 @@ class MainViewController: UIViewController {
             self.btn_Filter.setImage(UIImage(named: "img_filter_disabled"), for: .normal)
             self.bind()
         }
-              
+        
         optionMenu.addAction(deleteAction)
         optionMenu.addAction(saveAction)
         optionMenu.addAction(cancelAction)
-              
+        
         self.present(optionMenu, animated: true, completion: nil)
     }
     
@@ -87,10 +86,10 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.sortDataArray.count == 0 {
+        if viewModel.filterDataArray.count == 0 {
             return viewModel.dataArray.count
         } else {
-            return viewModel.sortDataArray.count
+            return viewModel.filterDataArray.count
         }
     }
     
@@ -98,10 +97,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
         let cell = tableViewMain.dequeueReusableCell(withIdentifier: "maintableviewcell") as! MainTableViewCell
         var object : Beer
         
-        if viewModel.sortDataArray.count != 0 {
-                   object = viewModel.sortDataArray[indexPath.row]
+        if viewModel.filterDataArray.count != 0 {
+            object = viewModel.filterDataArray[indexPath.row]
         } else {
-                   object = viewModel.dataArray[indexPath.row]
+            object = viewModel.dataArray[indexPath.row]
         }
         cell.lblNameBeer.text = object.name
         cell.lblTagLine.text = object.tagline
@@ -127,7 +126,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
                 viewModel.countPage += 1
                 viewModel.saveCountpage(countpage: viewModel.countPage)
             } else {
-                 viewModel.retriveNextDataList(pageIndex: String(viewModel.countPageInit)) { (beers, errors) in
+                viewModel.retriveNextDataList(pageIndex: String(viewModel.countPageInit)) { (beers, errors) in
                     self.viewModel.dataArray.append(contentsOf: beers)
                     self.bind()
                     hud.dismiss()
@@ -160,15 +159,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
             return
         }
         viewModel.searchByFood(searchTextFood: text)
-
-        if viewModel.sortDataArray.count == 0 {
+        
+        if viewModel.filterDataArray.count == 0 {
             DispatchQueue.main.async {
                 self.viewModel.getFoodNetwork(searchFood: text) { (beers, error) in
                     if beers.count == 0 {
                         self.showAlert()
                         searchBar.searchTextField.text = ""
                     } else {
-                        self.viewModel.sortDataArray.append(contentsOf: beers)
+                        self.viewModel.filterDataArray.append(contentsOf: beers)
                         self.viewModel.dataArray.append(contentsOf: beers)
                     }
                 }
@@ -177,11 +176,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
         bind()
         srchBar_Food.resignFirstResponder()
     }
-
+    
     func connection() {
-          let delegate = UIApplication.shared.delegate as! AppDelegate
-          viewModel.context = delegate.persistentContainer.viewContext
-      }
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        viewModel.context = delegate.persistentContainer.viewContext
+    }
     
     func showAlert() {
         let alert = UIAlertController(title: "Not Found", message: "Beer its not found", preferredStyle: .alert)
