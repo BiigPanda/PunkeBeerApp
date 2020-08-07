@@ -126,8 +126,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
                 }
                 viewModel.countPage += 1
                 viewModel.saveCountpage(countpage: viewModel.countPage)
-                print(viewModel.countPage)
-                print(viewModel.countPageInit)
             } else {
                  viewModel.retriveNextDataList(pageIndex: String(viewModel.countPageInit)) { (beers, errors) in
                     self.viewModel.dataArray.append(contentsOf: beers)
@@ -137,8 +135,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UISear
                 viewModel.countPage = Int16(viewModel.countPageInit)
                 viewModel.countPage += 1
                 viewModel.saveCountpage(countpage: viewModel.countPage)
-                print("Pasadoooooooooooo",viewModel.countPage)
-                print(viewModel.countPageInit)
             }
             bind()
         }

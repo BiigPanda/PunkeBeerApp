@@ -61,7 +61,6 @@ class MainViewModel {
                              }
                              let json = JSON(result)
                              beers =  self.parsedBeer(json: json)
-                             print(json)
                              completionHandler(beers,nil)
                              break
                          case .failure(let error):
@@ -106,7 +105,6 @@ class MainViewModel {
                                     }
                                     let json = JSON(result)
                                     beers =  self.parsedBeer(json: json)
-                                    print(json)
                                     completionHandler(beers,nil)
                                     break
                                 case .failure(let error):
@@ -187,7 +185,6 @@ class MainViewModel {
     
     
     func saveCoreData(objectBeer: Beer) {
-       print("Estoooooooy guardando datosssssssss")
         guard let beerEntity = NSEntityDescription.entity(forEntityName: "BeerCoreData", in: self.context!) else {
             return
         }
@@ -270,7 +267,6 @@ class MainViewModel {
                     emptyBeerC = Beer()
                 }
                 
-                print("Load arraaaaayyyyyyyyy",arrayBeerC.count)
                 return arrayBeerC
             }
         } catch let error as NSError {
@@ -287,7 +283,6 @@ class MainViewModel {
         var beer = Beer()
         var beers : [Beer] = []
         for (_,subJson):(String, JSON) in json {
-            print(json)
             beer.id = Int16(subJson["id"].intValue)
             beer.name = subJson["name"].stringValue
             beer.tagline = subJson["tagline"].stringValue
